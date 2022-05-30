@@ -15,20 +15,40 @@ function computerPlay() {
     }
 }
 
-// one round of the game
-function playRound() {
-    let playerSelection = prompt('Rock, paper or scissors?').toLowerCase();
-    let computerSelection = computerPlay();
+// one round of the game ?
+function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        return 'That\'s a tie!'
+        roundWinner = 'tie';
     } else if ((playerSelection === 'rock' && computerSelection === 'scissors') || (playerSelection === 'paper' && computerSelection === 'rock') || (playerSelection === 'scissors' && computerSelection === 'paper')) {
-        return `You win! It was your ${playerSelection} vs ${computerSelection}.`;
+        playerScore++;
+        roundWinner = 'player';
     } else {
-        return `You lost! It was your ${playerSelection} vs ${computerSelection}.`;
+        computerScore++;
+        roundWinner = 'computer';
     }
+    console.log(roundWinner);
+}
+
+//reset game
+function resetGame() {
+    playerScore = 0;
+    computerScore = 0;
+    roundWinner = '';
 }
 
 // 5 rounds in a row
 function game() {
-    
+    let playerChoice = prompt('Rock, paper or scissors?').toLowerCase();
+    let computerChoice;
+    for (let i = 0; i < 5; i++) {
+        computerChoice = computerPlay();
+        playRound(playerChoice, computerChoice);
+    }
+    if (playerScore > computerScore) {
+        console.log(`You are the overall winner, with ${playerScore} point(s)!`);
+    } else {
+        console.log(`The computer is the overall winner, with ${computerScore} point(s).`)
+    }
+    resetGame();
 }
+
