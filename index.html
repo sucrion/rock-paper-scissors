@@ -9,10 +9,26 @@
 		<title>Rock, Paper, Scissors</title>
 
 		<!-- external CSS link -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet"> 
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-
+        <header>
+            <h1>Rock, Paper, Scissors</h1>
+            <p>A classic game. Here, you're up against a computer. First to make it to 5 points wins!</p>
+        </header>
+        <div>
+            <p>Make your choice:</p>
+            <button id="rockBtn">🪨</button>
+            <button id="paperBtn">📃</button>
+            <button id="scissorsBtn">✂️</button>
+        </div>
+        <div>
+            <p id="scoreP">Press a button to start the game!</p>
+            <p id="winnerP"></p>
+        </div>
 		<script type="text/javascript" src="main.js"></script>
 	</body>
 </html>
